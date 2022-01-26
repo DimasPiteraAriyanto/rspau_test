@@ -13,6 +13,6 @@ class Pasien extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id','no_rm','nama','umur','jenis_kelamin','id_diagnosa'
+        'id','no_rm','name','umur','jenis_kelamin','id_diagnosa'
     ];
 }

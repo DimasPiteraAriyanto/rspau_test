@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasienControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,13 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-
-Route::get('test', function (){
-    return view('test');
-});
-
-Route::resource('pasienn',PasienControllers::class);
+Route::resource('pasien',PasienControllers::class);

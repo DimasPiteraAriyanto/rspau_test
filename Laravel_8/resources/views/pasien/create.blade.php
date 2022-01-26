@@ -7,7 +7,7 @@
             <h2>Create New Pasien</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('pasienn.index') }}"> Kembali</a>
+            <a class="btn btn-secondary" href="{{ route('pasien.index') }}"> Kembali</a>
         </div>
     </div>
 </div>
@@ -23,14 +23,14 @@
     </div>
 @endif
 
-<form action="{{ route('pasienn.store') }}" method="POST">
+<form action="{{ route('pasien.store') }}" method="POST">
     @csrf
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama Pasien:</strong>
-                <input type="text" name="nama" class="form-control" placeholder="Masukan nama pasien...">
+                <input type="text" name="name" class="form-control" placeholder="Masukan nama pasien...">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -42,7 +42,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Umur:</strong>
-                <textarea class="form-control" style="height:150px" name="umur" ></textarea>
+                <input type="text" name="umur" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

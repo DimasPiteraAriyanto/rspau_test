@@ -15,8 +15,8 @@ class PasienControllers extends Controller
      */
     public function index()
     {
-        $pasienn = Pasien::latest()->paginate(5);
-        return view ('pasienn.index',compact('pasienn'))->with('i', (request()->input('page', 1) -1) * 5);
+        $pasiens = Pasien::latest()->paginate(5);
+        return view ('pasien.index',compact('pasiens'))->with('i', (request()->input('page', 1) -1) * 5);
     }
 
     /**
@@ -27,7 +27,7 @@ class PasienControllers extends Controller
     public function create()
     {
         //
-        return view('pasienn.create');
+        return view('pasien.create');
     }
 
     /**
@@ -40,16 +40,15 @@ class PasienControllers extends Controller
     {
         //
         $request->validate([
-            'id' => 'required',
             'no_rm' => 'required',
-            'nama' => 'required',
+            'name' => 'required',
             'umur' => 'required',
             'jenis_kelamin' => 'required',
             'id_diagnosa' => 'required'
         ]);
         Pasien::create($request->all());
 
-        return redirect()->route('pasienn.index')->with('succes','Data Berhasil di Input');
+        return redirect()->route('pasien.index')->with('succes','Data Berhasil di Input');
     }
 
     /**
@@ -58,9 +57,9 @@ class PasienControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pasien $pasienn)
+    public function show(Pasien $pasiens)
     {
-        return view('pasienn.show',compact('pasienn'));
+        return view('pasien.show',compact('pasiens'));
     }
 
     /**
@@ -69,9 +68,9 @@ class PasienControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pasien $pasienn)
+    public function edit(Pasien $pasien)
     {
-        return view('pasienn.edit', compact('pasienn'));
+        return view('pasien.edit', compact('pasien'));
     }
 
     /**
@@ -81,20 +80,19 @@ class PasienControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pasien $pasienn)
+    public function update(Request $request, Pasien $pasiens)
     {
         $request->validate([
-            'id' => 'required',
             'no_rm' => 'required',
-            'nama' => 'required',
+            'name' => 'required',
             'umur' => 'required',
             'jenis_kelamin' => 'required',
             'id_diagnosa' => 'required'
         ]);
 
-        $pasienn->update($request->all());
+        $pasiens->update($request->all());
 
-        return redirect()->route('pasienn.index')->with('succes','Pasien Berhasil di Update');
+        return redirect()->route('pasien.index')->with('succes','Pasien Berhasil di Update');
     }
 
     /**
@@ -103,10 +101,10 @@ class PasienControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pasien $pasienn)
+    public function destroy(Pasien $pasien)
     {
-        $pasienn->delete();
+        $pasien->delete();
 
-        return redirect()->route('pasienn.index')->with('succes','Pasien Berhasil di Hapus');
+        return redirect()->route('pasien.index')->with('succes','Pasien Berhasil di Hapus');
     }
 }
